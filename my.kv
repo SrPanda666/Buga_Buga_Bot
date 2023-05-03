@@ -33,12 +33,16 @@
         orientation: 'vertical'
         Button:
             text: 'Ligar Bot'
+            background_color: (0,1,0,1)
+            #on_press: self.background_color = 1, 0, 0, 1  # muda a cor de fundo para vermelho quando pressionado
             on_release: root.ligar_bot()
         Button:
             text: 'Desligar Bot'
+            background_color: (1,0,0,1)
             on_release: root.desligar_bot()
         Button:
             text: 'Voltar'
+            background_color: 'blue'
             on_release: app.root.current = 'menu'
 
 <Config>:

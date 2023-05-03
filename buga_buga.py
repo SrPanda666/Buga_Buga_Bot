@@ -11,10 +11,10 @@ Oque são cada uma?
     em resumo é uma area retangular onde o bot deve fiscalizar para checar se o peixe deve ou não ser puxado, exemplo: regiao_peixe = (245,523,215,245)
 
 """
-agua = (0,0)
-vara = (0,0)
-lista_batalha = (0,0)
-regiao_peixe = (0,0,0,0)
+agua = (671,591)
+vara = (1221,100)
+lista_batalha = (1237,312)
+regiao_peixe = (1129,193,35,42)
 
 """
 Relembrando!

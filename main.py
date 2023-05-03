@@ -18,7 +18,7 @@ class Bot(Screen):
     def ligar_bot(self):
         self.sinal = True
         while self.sinal:
-            bot_start(self.sinal)
+            bot_start()
 
     def desligar_bot(self):
         self.sinal = False

@@ -1,0 +1,55 @@
+#:kivy 2.0.0
+<Gerenciador>:
+    Menu:
+        name: 'menu'
+    Bot:
+        name: 'bot'
+    Config:
+        name: 'config'
+
+<Menu>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 20
+        Image: 
+            source: 'bot.png'
+            size_hint_y: None
+            height: 300
+            allow_stretch: True
+        Button:
+            text: 'Bot'
+            on_release: app.root.current = 'bot'
+        Button:
+            text: 'Configurações do bot'
+            on_release: app.root.current = 'config'
+        Button:
+            text: 'Sair'
+            on_release: app.stop()
+
+
+<Bot>:
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text: 'Ligar Bot'
+            on_release: root.ligar_bot()
+        Button:
+            text: 'Desligar Bot'
+            on_release: root.desligar_bot()
+        Button:
+            text: 'Voltar'
+            on_release: app.root.current = 'menu'
+
+<Config>:
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text: 'Ligar Bot'
+            on_release: root.fa()
+        Button:
+            text: 'Desligar Bot'
+            on_release: root.fb()
+        Button:
+            text: 'Voltar'
+            on_release: app.root.current = 'menu'

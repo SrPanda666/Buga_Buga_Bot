@@ -1,5 +1,5 @@
 import pyautogui as gui
-from pos_img import localiza_img_tela
+#from pos_img import localiza_img_tela
 from time import sleep
 
 def lotear_capturar(x,y):
@@ -16,7 +16,6 @@ def lotear_capturar(x,y):
     gui.press('q')
     gui.moveTo(x,y)
     gui.leftClick()
-
 
 
 def pescar(agua=(0,0),vara=(0,0),lista_batalha=(0,0),regiao_peixe=(0,0,0,0)):
@@ -41,12 +40,9 @@ def pescar(agua=(0,0),vara=(0,0),lista_batalha=(0,0),regiao_peixe=(0,0,0,0)):
     gui.press(['f1','f2','f3','f4','f5','f6','f7','f8','f9','f10'])
 
 
-    
-
-
 
 def peixe_verde(regiao_peixe=(0,0,0,0)):
-   box = gui.locateOnScreen('img/peixe.PNG',limit=12,region=regiao_peixe)
+   box = gui.locateOnScreen('img/1.PNG',limit=12,region=regiao_peixe)
    x = box[0]
    y = box[1]
    largura = box[2]
@@ -56,8 +52,5 @@ def peixe_verde(regiao_peixe=(0,0,0,0)):
    pos_y = y + (altura/2)
 
    return pos_x,pos_y
-
-
-
 
     

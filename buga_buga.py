@@ -79,3 +79,5 @@ def bot_start():
         
     tentativa = 1
 
+if __name__ == '__main__':
+    bot_start()

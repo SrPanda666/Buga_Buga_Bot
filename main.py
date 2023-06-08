@@ -1,60 +1,44 @@
-from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
-from kivy.uix.image import Image
-from kivy.uix.screenmanager import ScreenManager, Screen
-from buga_buga import bot_start
-import threading
+import tkinter as tk
+from buga_buga_class import BugaBuga
+from time import sleep
+
+bot = BugaBuga(personagem_x=684,personagem_y=384,lista_x=1226,Lista_y=321)
+
+
+sinal = True
+
+def iniciar():
+    print("Iniciando...")
+
+    global sinalq
+    sinal = True
+
+    while sinal:
     
-class Gerenciador(ScreenManager):
-    pass
+        bot.batalha()
 
-class Menu(Screen):
-    pass
+        sleep(3)
 
-class Bot(Screen):
+        bot.looting(bot.down_person[0]+50,bot.down_person[1], 1190,517,'q')
 
-    def criar_bot(self):
-        self.sinal = False
+def parar():
+    print("Parando...")
+    bot.aguarda()
+    global sinal 
+    sinal = False
 
-    def ligar_bot(self):
-        try:
-            print('liguei')
-            self.sinal = True
-            print('thread feita')
-            self.bot_thread = threading.Thread(target=self.bot_loop)
-            print('thread iniciada')
-            self.bot_thread.start()
-        
-        except:
-            print('thread falhou')
+def sair():
+    root.destroy()
 
-    def bot_loop(self):
-        while self.sinal:
-            bot_start()
+root = tk.Tk()
 
-    def desligar_bot(self):
-        print('tentei desligar')
-        self.sinal = False
-        self.bot_thread.join()
-        print('desliguei')
+btn_iniciar = tk.Button(root, text="Iniciar", command=iniciar)
+btn_iniciar.pack(pady=10)
 
+btn_parar = tk.Button(root, text="Parar", command=parar)
+btn_parar.pack(pady=10)
 
-class Config(Screen):
-    def fa(self):
-        pass
+btn_sair = tk.Button(root, text="Sair", command=sair)
+btn_sair.pack(pady=10)
 
-    def fb(self):
-        pass
-
-
-class MyApp(App):
-    def build(self):
-        
-        return Gerenciador()
-
-if __name__ == '__main__':
-    MyApp().run()
-    """
-    Fazer sistema de sobreposição
-    """
+root.mainloop()

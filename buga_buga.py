@@ -1,4 +1,4 @@
-from func import lotear_capturar,pescar
+from func_desatualizada import lotear_capturar,pescar
 from time import sleep
 
 

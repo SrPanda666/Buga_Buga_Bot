@@ -2,7 +2,7 @@ import pyautogui as gui
 
 class BugaBuga():
 
-    def __init__(self,personagem_x=684,personagem_y=384,lista_x=1226,Lista_y=321,) -> None:
+    def __init__(self,personagem_x=684,personagem_y=384,lista_x=1226,Lista_y=321) -> None:
         self.lista_batalha =  (lista_x,Lista_y)
         self.posicao_personagem = (personagem_x,personagem_y)
         

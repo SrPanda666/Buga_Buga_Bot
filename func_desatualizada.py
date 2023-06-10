@@ -33,7 +33,7 @@ def pescar(agua=(0,0),vara=(0,0),lista_batalha=(0,0),regiao_peixe=(0,0,0,0)):
     gui.moveTo(x=peixe_x,y=peixe_y)
     gui.leftClick()
 
-    #pescamos o peixe, agora é descer a porrada nele
+    #pescamos o peixe, agora é descer a porrada nele 
     gui.moveTo(x=lista_batalha[0],y=lista_batalha[1])
     gui.leftClick()
 

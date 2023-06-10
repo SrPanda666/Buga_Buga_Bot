@@ -6,7 +6,7 @@ class BugaBuga():
         self.lista_batalha =  (lista_x,Lista_y)
         self.posicao_personagem = (personagem_x,personagem_y)
         
-        self.right_person = (personagem_x + 50)
+        self.right_person = (personagem_x + 50, personagem_y)
         self.left_person = (personagem_x - 50, personagem_y)
         self.up_person = (personagem_x, personagem_y - 50)
         self.down_person = (personagem_x, personagem_y + 50) #(679,431)

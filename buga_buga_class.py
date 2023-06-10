@@ -20,7 +20,7 @@ class BugaBuga():
         #lançando todos os ataques de uma vez
         gui.press(['f1','f2','f3','f4','f5','f6','f7','f8','f9','f10'])
 
-    def looting(self,poke_x,poke_y,box_x,box_y,botao_boll='q'): #box_x = 1190, box_y = 517
+    def looting(self,poke_x,poke_y,box_x=1190,box_y=517,botao_boll='q'): #box_x = 1190, box_y = 517
 
         gui.moveTo(poke_x,poke_y)
         gui.rightClick()
@@ -39,5 +39,33 @@ class BugaBuga():
         #gui.moveTo(box_x,box_y)
         #gui.leftClick()
 
-    def aguarda(self):
-        pass
+
+    def como_lootear(self,metodo=1):
+        """
+        São implementados 5 possiveis métodos até o momento
+        sendo:
+            1 - Esquerda do personagem
+            2 - cima do personagem
+            3 - Direita do personagem
+            4 - Em baixo do perconagem
+            5 - 3 blocos em baixo do personagem
+        """
+        if metodo == 1:
+            self.looting(self.lef_person[0],self.lef_person[1])
+
+        elif metodo == 2:
+            self.looting(self.up_person[0],self.up_person[1])
+        
+        elif metodo == 3:
+            self.looting(self.right_person[0],self.right_person[1])
+
+        elif metodo == 4:
+            self.looting(self.down_person[0],self.down_person[1])
+        
+        else:
+            self.looting(self.down_person[0]-50,self.down_person[1])
+            self.looting(self.down_person[0],self.down_person[1])
+            self.looting(self.down_person[0]+50,self.down_person[1])
+
+        
+

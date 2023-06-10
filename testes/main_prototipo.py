@@ -2,32 +2,15 @@ import threading
 import tkinter as tk
 from tkinter import messagebox
 from time import sleep
-from buga_buga_class import BugaBuga
 
 """
 Sina = Condição de controle para iniciar e parar o bot
 thread: thread que executa o bot em paralelo com a interface gráfica
 root: Raiz de controle da interface gráfica
-bot: Instancia do buga buga bot que foi criada e preparada para ser executada
-como_lootear: recebe se a região de loot sera apenas um lado ou tres opções
-Na pratica:
-    sendo:
-            1 - Esquerda do personagem
-            2 - cima do personagem
-            3 - Direita do personagem
-            4 - Em baixo do perconagem
-            5 - 3 blocos em baixo do personagem
 """
 sinal = True
 thread = None
 root = None
-bot = BugaBuga(684,384,1226,321)
-como_lootear = 5
-
-"""
-Abaixo deste comentario estão as funções desenvolvidas para fazer o sistema funcionar
-Aviso: muito coidado para NÃO MEXER nelas
-"""
 
 def iniciar():
     """
@@ -40,46 +23,26 @@ def iniciar():
     global sinal, thread
     if not thread or not thread.is_alive():
         sinal = True
-        thread = threading.Thread(target=ligar_bot)
+        thread = threading.Thread(target=batalha)
         thread.start()
     else:
         messagebox.showinfo("Aviso", 'Bot ja está sendo executado')
 
-def ligar_bot():
-    """
-    Cria um laço de repetição "Inifinito" até que o sinal seja "FALSE"
-    a cada 3 segundos o bot inicia o processo de batalha
-    apos a batalha o bot aguarda 3 segundos
-    apos a aguardar, o bot inicia o processo de looting
-    e o ciclo é reiniciado
-    """
+def batalha():
     while sinal: 
-            sleep(3)
-            bot.batalha()
-            sleep(3)
-            bot.como_lootear(5)
+            print("Batalha")
+            sleep(1)
 
 def parar():
-    """
-    Altera o valor da variavel global 'sinal' para para 'False' visando parar o bot, além de mostrar uma mensagem para o usuário
-    """
     global sinal
     sinal = False
     messagebox.showinfo("Aviso", 'Bot teve sua execuração parada')
 
 def sair():
-    """
-    Pergunta para o usuário realmente quer sair
-        caso sim: Fecha o app
-        caso não: Nada acontece
-    """
     if messagebox.askokcancel("Sair", "Deseja realmente sair?"):
         root.destroy()
 
 def interface():
-    """
-    função que cria uma interface gráfica usando tkinter e atrela a mesma a variavel global root
-    """
     global root
     root = tk.Tk()
 
@@ -100,10 +63,5 @@ def interface():
     # Execução da interface gráfica
     root.mainloop()
 
-
-################################## Condigo em execução a baixo, resto é função e controle#######
-"""
-Thread responsavel pela interface gráfica
-"""
 thread_interface = threading.Thread(target=interface)
 thread_interface.start()

@@ -18,7 +18,7 @@ Na pratica:
             4 - Em baixo do perconagem
             5 - 3 blocos em baixo do personagem
 """
-sinal = True
+sinal = False 
 thread = None
 root = None
 bot = BugaBuga(684,384,1226,321)
@@ -57,7 +57,7 @@ def ligar_bot():
             sleep(3)
             bot.batalha()
             sleep(3)
-            bot.como_lootear(5)
+            bot.como_lootear(1)
 
 def parar():
     """

@@ -1,0 +1,3 @@
+funões assincronas
+uso de socket
+streaming
